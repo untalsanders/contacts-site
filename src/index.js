@@ -2,13 +2,15 @@
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import App from './App'
+import ErrorPage from './error-page'
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />
+        element: <App />,
+        errorElement: <ErrorPage />
     }
 ])
 
