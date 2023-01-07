@@ -1,7 +1,7 @@
 'use strict'
 
 import '@/styles/global.scss'
-import { Form, Link } from 'react-router-dom'
+import { Form, Link, Outlet } from 'react-router-dom'
 
 export default function App() {
     return (
@@ -21,14 +21,16 @@ export default function App() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to={`/contacts/1`}>Your name</Link>
+                            <Link to={`contacts/1`}>Your name</Link>
                         </li>
                         <li>
-                            <Link to={`/contacts/2`}>Your Friend</Link>
+                            <Link to={`contacts/2`}>Your Friend</Link>
                         </li>
                     </ul>
                 </nav>
-                <div id="detail"></div>
+            </div>
+            <div id="detail">
+                <Outlet />
             </div>
         </>
     )
