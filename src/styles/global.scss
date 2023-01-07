@@ -53,12 +53,18 @@ button {
     }
 }
 
-form[action$='destroy'] button {
-    color: #f44250;
-}
-
 i {
     color: #818181;
+}
+
+#root {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+form[action$='destroy'] button {
+    color: #f44250;
 }
 
 .sr-only {
@@ -71,12 +77,6 @@ i {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-}
-
-#root {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
 }
 
 .sidebar {
@@ -129,7 +129,7 @@ i {
     nav {
         flex: 1;
         overflow: auto;
-        padding-top: 1rem;
+        padding: 1rem;
 
         a {
             display: flex;
@@ -171,6 +171,18 @@ i {
 
     li {
         margin: 0.25rem 0;
+    }
+}
+
+.detail {
+    flex: 1;
+    padding: 2rem;
+    width: 100%;
+
+    .loading {
+        opacity: 0.25;
+        transition: opacity 200ms;
+        transition-delay: 200ms;
     }
 }
 
