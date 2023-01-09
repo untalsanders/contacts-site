@@ -29,7 +29,7 @@ export default function App() {
                     </ul>
                 </nav>
             </div>
-            <div id="detail">
+            <div className="detail">
                 <Outlet />
             </div>
         </>

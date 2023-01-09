@@ -26,6 +26,11 @@ body {
     line-height: 1.5;
     color: #121212;
 }
+
+a {
+    text-decoration: none;
+}
+
 textarea,
 input,
 button {
@@ -183,6 +188,77 @@ form[action$='destroy'] button {
         opacity: 0.25;
         transition: opacity 200ms;
         transition-delay: 200ms;
+    }
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: min-content;
+
+    img {
+        width: 12rem;
+        height: 12rem;
+        background: #c8c8c8;
+        border-radius: 1.5rem;
+        object-fit: cover;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.2;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        &:focus {
+            outline: none;
+            color: hsl(224, 98%, 58%);
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            margin-top: 0.25rem;
+
+            button {
+                box-shadow: none;
+                font-size: 1.5rem;
+                font-weight: 400;
+                padding: 0;
+
+                &[value="true"] {
+                    color: #a4a4a4;
+                }
+
+                &[value="true"]:hover,
+                &[value="false"] {
+                    color: #eeb004;
+                }
+            }
+        }
+    }
+
+    a[href*="twitter"] {
+        display: flex;
+        font-size: 1.5rem;
+        color: #3992ff;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    h1+p+p {
+        white-space: break-spaces;
+    }
+
+    h1~div {
+        display: flex;
+        gap: 0.5rem;
+        margin: 1rem 0;
     }
 }
 
