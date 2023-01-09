@@ -3,11 +3,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import App, { loader as rootLoader, action as rootAction } from './App'
-import ErrorPage from './error-page'
+import App, { action as rootAction, loader as rootLoader } from './App'
 import Contact, { loader as contactLoader } from './contact'
-import EditContact, { action as editAction } from './edit'
 import { action as deleteAction } from './destroy'
+import EditContact, { action as editAction } from './edit'
+import ErrorPage from './error-page'
 
 const router = createBrowserRouter([
     {

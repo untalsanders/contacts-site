@@ -1,11 +1,14 @@
 'use strict'
 
 import '@/styles/global.scss'
-import { Form, Link, Outlet, useLoaderData } from 'react-router-dom'
+import { Form, Link, Outlet, redirect, useLoaderData } from 'react-router-dom'
 import { getContacts, createContact } from '../data/contacts'
 
 export const loader = async () => ({ contacts: await getContacts() })
-export const action = async () => ({ contact: await createContact() })
+export const action = async () => {
+    const contact = await createContact()
+    return redirect(`/contacts/${contact.id}/edit`)
+}
 
 export default function App() {
     const { contacts } = useLoaderData()
@@ -35,7 +38,7 @@ export default function App() {
                                                 {contact.first} {contact.last}
                                             </>
                                         ) : (
-                                                <i>No name</i>
+                                            <i>No name</i>
                                         )}{' '}
                                         {contact.favorite && <span>★</span>}
                                     </Link>
