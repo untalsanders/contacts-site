@@ -49,3 +49,13 @@ export const getContact = async id => {
     let contact = contacts.find(contact => contact.id === id)
     return contact ?? null
 }
+
+export const updateContact = async (id, updates) => {
+    await fakeNetwork()
+    let contacts = await localforage.getItem('contacts')
+    let contact = contacts.find(contact => contact.id === id)
+    if (!contact) throw new Error('No contact found for', id)
+    Object.assign(contact, updates)
+    await set(contacts)
+    return contact
+}
