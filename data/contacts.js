@@ -42,3 +42,10 @@ export const createContact = async () => {
     await set(contacts)
     return contact
 }
+
+export const getContact = async id => {
+    await fakeNetwork(`contact:${id}`)
+    let contacts = await localforage.getItem('contacts')
+    let contact = contacts.find(contact => contact.id === id)
+    return contact ?? null
+}

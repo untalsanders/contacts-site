@@ -1,17 +1,13 @@
 'use strict'
 
-import { Form } from 'react-router-dom'
+import { Form, useLoaderData } from 'react-router-dom'
 import Favorite from './favorite'
+import { getContact } from '../data/contacts'
+
+export const loader = async ({ params }) => ({ contact: await getContact(params.id) })
 
 export default function Contact() {
-    const contact = {
-        first: 'Sanders',
-        last: 'Gutiérrez',
-        avatar: 'https://placekitten.com/g/200/200',
-        twitter: 'untalsanders',
-        notes: 'Some notes',
-        favorite: true,
-    }
+    const { contact } = useLoaderData()
 
     return (
         <>
