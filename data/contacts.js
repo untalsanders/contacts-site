@@ -59,3 +59,14 @@ export const updateContact = async (id, updates) => {
     await set(contacts)
     return contact
 }
+
+export const deleteContact = async id => {
+    let contacts = await localforage.getItem('contacts')
+    let index = contacts.findIndex(contact => contact.id === id)
+    if (index > -1) {
+        contacts.splice(index, 1)
+        await set(contacts)
+        return true
+    }
+    return false
+}
