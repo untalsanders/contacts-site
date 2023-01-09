@@ -1,7 +1,7 @@
 'use strict'
 
 import '@/styles/global.scss'
-import { Form, Link, Outlet, redirect, useLoaderData } from 'react-router-dom'
+import { Form, Link, NavLink, Outlet, redirect, useLoaderData } from 'react-router-dom'
 import { getContacts, createContact } from '../data/contacts'
 
 export const loader = async () => ({ contacts: await getContacts() })
@@ -32,7 +32,11 @@ export default function App() {
                         <ul>
                             {contacts.map(contact => (
                                 <li key={contact.id}>
-                                    <Link to={`contacts/${contact.id}`}>
+                                    <NavLink
+                                        to={`contacts/${contact.id}`}
+                                        className={({ isActive, isPending }) => 
+                                            isActive ? 'active' : isPending ? 'pending' : ''
+                                        }>
                                         {contact.first || contact.last ? (
                                             <>
                                                 {contact.first} {contact.last}
@@ -41,7 +45,7 @@ export default function App() {
                                             <i>No name</i>
                                         )}{' '}
                                         {contact.favorite && <span>★</span>}
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
