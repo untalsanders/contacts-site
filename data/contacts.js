@@ -32,3 +32,13 @@ export const getContacts = async query => {
     }
     return contacts.sort(sortBy('last', 'createdAt'))
 }
+
+export const createContact = async () => {
+    await fakeNetwork()
+    let id = Math.random().toString(36).substring(2, 9)
+    let contact = { id, createAt: Date.now() }
+    let contacts = await getContacts()
+    contacts.unshift(contact)
+    await set(contacts)
+    return contact
+}

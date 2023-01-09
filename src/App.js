@@ -2,9 +2,10 @@
 
 import '@/styles/global.scss'
 import { Form, Link, Outlet, useLoaderData } from 'react-router-dom'
-import { getContacts } from '../data/contacts'
+import { getContacts, createContact } from '../data/contacts'
 
 export const loader = async () => ({ contacts: await getContacts() })
+export const action = async () => ({ contact: await createContact() })
 
 export default function App() {
     const { contacts } = useLoaderData()
