@@ -1,9 +1,14 @@
 'use strict'
 
 import '@/styles/global.scss'
-import { Form, Link, Outlet } from 'react-router-dom'
+import { Form, Link, Outlet, useLoaderData } from 'react-router-dom'
+import { getContacts } from '../data/contacts'
+
+export const loader = async () => ({ contacts: await getContacts() })
 
 export default function App() {
+    const { contacts } = useLoaderData()
+
     return (
         <>
             <div className="sidebar">
@@ -19,14 +24,28 @@ export default function App() {
                     </Form>
                 </div>
                 <nav>
-                    <ul>
-                        <li>
-                            <Link to={`contacts/1`}>Your name</Link>
-                        </li>
-                        <li>
-                            <Link to={`contacts/2`}>Your Friend</Link>
-                        </li>
-                    </ul>
+                    {contacts.length ? (
+                        <ul>
+                            {contacts.map(contact => (
+                                <li key={contact.id}>
+                                    <Link to={`contacts/${contact.id}`}>
+                                        {contact.first || contact.last ? (
+                                            <>
+                                                {contact.first} {contact.last}
+                                            </>
+                                        ) : (
+                                                <i>No name</i>
+                                        )}{' '}
+                                        {contact.favorite && <span>★</span>}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>
+                            <i>No contacts</i>
+                        </p>
+                    )}
                 </nav>
             </div>
             <div className="detail">
