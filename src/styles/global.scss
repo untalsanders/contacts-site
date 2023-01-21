@@ -151,6 +151,7 @@ form[action$='destroy'] button {
 
             &:hover {
                 background: #e3e3e3;
+                color: hsl(224, 98%, 58%);
             }
 
             &.active {
@@ -183,12 +184,12 @@ form[action$='destroy'] button {
     flex: 1;
     padding: 2rem;
     width: 100%;
+}
 
-    .loading {
-        opacity: 0.25;
-        transition: opacity 200ms;
-        transition-delay: 200ms;
-    }
+.detail.loading {
+    opacity: 0.25;
+    transition: opacity 200ms;
+    transition-delay: 200ms;
 }
 
 .contact {

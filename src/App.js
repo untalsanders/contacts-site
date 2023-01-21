@@ -1,7 +1,7 @@
 'use strict'
 
 import '@/styles/global.scss'
-import { Form, Link, NavLink, Outlet, redirect, useLoaderData } from 'react-router-dom'
+import { Form, Link, NavLink, Outlet, redirect, useLoaderData, useNavigation } from 'react-router-dom'
 import { getContacts, createContact } from '../data/contacts'
 
 export const loader = async () => ({ contacts: await getContacts() })
@@ -12,6 +12,7 @@ export const action = async () => {
 
 export default function App() {
     const { contacts } = useLoaderData()
+    const navigation = useNavigation()
 
     return (
         <>
@@ -56,7 +57,7 @@ export default function App() {
                     )}
                 </nav>
             </div>
-            <div className="detail">
+            <div className={`detail ${navigation.state === 'loading' ? 'loading' : ''}`}>
                 <Outlet />
             </div>
         </>
