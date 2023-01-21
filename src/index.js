@@ -20,16 +20,19 @@ const router = createBrowserRouter([
             {
                 path: 'contacts/:id',
                 element: <Contact />,
+                errorElement: <ErrorPage />,
                 loader: contactLoader,
             },
             {
                 path: 'contacts/:id/edit',
                 element: <EditContact />,
+                errorElement: <ErrorPage />,
                 loader: contactLoader,
                 action: editAction,
             },
             {
                 path: 'contacts/:id/destroy',
+                errorElement: <ErrorPage />,
                 action: deleteAction,
             },
         ],
