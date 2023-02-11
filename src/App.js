@@ -24,6 +24,12 @@ export default function App() {
         submit(form)
     }
 
+    const searching = navigation.location && new URLSearchParams(navigation.location.search).has('q')
+
+    useEffect(() => {
+        document.querySelector('#q').value = q
+    }, [q])
+
     return (
         <>
             <div className="sidebar">
@@ -32,6 +38,7 @@ export default function App() {
                     <Form id="search-form" role="search">
                         <input
                             id="q"
+                            className={searching ? 'loading' : ''}
                             aria-label="Search contacts"
                             placeholder="Search"
                             type="search"
@@ -39,7 +46,7 @@ export default function App() {
                             defaultValue={q}
                             onChange={e => handleChange(e.currentTarget.form)}
                         />
-                        <div id="search-spinner" aria-hidden hidden={true} />
+                        <div id="search-spinner" aria-hidden hidden={!searching} />
                         <div className="sr-only" aria-live="polite" />
                     </Form>
                     <Form method="post">
