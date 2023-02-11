@@ -20,10 +20,6 @@ export default function App() {
     const navigation = useNavigation()
     const submit = useSubmit()
 
-    const handleChange = (form) => {
-        submit(form)
-    }
-
     const searching = navigation.location && new URLSearchParams(navigation.location.search).has('q')
 
     useEffect(() => {
@@ -44,7 +40,10 @@ export default function App() {
                             type="search"
                             name="q"
                             defaultValue={q}
-                            onChange={e => handleChange(e.currentTarget.form)}
+                            onChange={e => {
+                                const isFirstSearch = q == null
+                                submit(e.currentTarget.form, { replace: !isFirstSearch })
+                            }}
                         />
                         <div id="search-spinner" aria-hidden hidden={!searching} />
                         <div className="sr-only" aria-live="polite" />
