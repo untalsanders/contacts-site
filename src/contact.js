@@ -2,9 +2,15 @@
 
 import { Form, useLoaderData } from 'react-router-dom'
 import Favorite from './favorite'
-import { getContact } from '../data/contacts'
+import { getContact, updateContact } from '../data/contacts'
 
 export const loader = async ({ params }) => ({ contact: await getContact(params.id) })
+export const action = async ({ request, params }) => {
+    let formData = await request.formData()
+    return updateContact(params.id, {
+        favorite: formData.get('favorite') === 'true'
+    })
+}
 
 export default function Contact() {
     const { contact } = useLoaderData()

@@ -4,7 +4,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App, { action as rootAction, loader as rootLoader } from './App'
-import Contact, { loader as contactLoader } from './contact'
+import Contact, { loader as contactLoader, action as contactAction } from './contact'
 import { action as deleteAction } from './destroy'
 import EditContact, { action as editAction } from './edit'
 import ErrorPage from './error-page'
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
                 element: <Contact />,
                 errorElement: <ErrorPage />,
                 loader: contactLoader,
+                action: contactAction,
             },
             {
                 path: 'contacts/:id/edit',
