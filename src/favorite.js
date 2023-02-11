@@ -1,10 +1,14 @@
 'use strict'
 
-import { Form, useFetcher } from 'react-router-dom'
+import { useFetcher } from 'react-router-dom'
 
 export default function Favorite({ contact }) {
-    let favorite = contact.favorite
     const fetcher = useFetcher()
+    
+    let favorite = contact.favorite
+    if (fetcher.formData) {
+        favorite = fetcher.formData.get('favorite') === 'true'
+    }
 
     return (
         <fetcher.Form method="post">
