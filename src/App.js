@@ -1,18 +1,28 @@
 'use strict'
 
 import '@/styles/global.scss'
-import { Form, Link, NavLink, Outlet, redirect, useLoaderData, useNavigation } from 'react-router-dom'
-import { getContacts, createContact } from '../data/contacts'
+import { Form, NavLink, Outlet, redirect, useLoaderData, useNavigation, useSubmit } from 'react-router-dom'
+import { createContact, getContacts } from '../data/contacts'
+import { useEffect, useState } from 'react'
 
-export const loader = async () => ({ contacts: await getContacts() })
+export const loader = async ({ request }) => {
+    const url = new URL(request.url)
+    const q = url.searchParams.get('q')
+    return { contacts: await getContacts(q), q }
+}
 export const action = async () => {
     const contact = await createContact()
     return redirect(`/contacts/${contact.id}/edit`)
 }
 
 export default function App() {
-    const { contacts } = useLoaderData()
+    const { contacts, q } = useLoaderData()
     const navigation = useNavigation()
+    const submit = useSubmit()
+
+    const handleChange = (form) => {
+        submit(form)
+    }
 
     return (
         <>
@@ -20,7 +30,15 @@ export default function App() {
                 <h1>Contacts</h1>
                 <div>
                     <Form id="search-form" role="search">
-                        <input id="q" aria-label="Search contacts" placeholder="Search" type="search" name="q" />
+                        <input
+                            id="q"
+                            aria-label="Search contacts"
+                            placeholder="Search"
+                            type="search"
+                            name="q"
+                            defaultValue={q}
+                            onChange={e => handleChange(e.currentTarget.form)}
+                        />
                         <div id="search-spinner" aria-hidden hidden={true} />
                         <div className="sr-only" aria-live="polite" />
                     </Form>
@@ -35,7 +53,7 @@ export default function App() {
                                 <li key={contact.id}>
                                     <NavLink
                                         to={`contacts/${contact.id}`}
-                                        className={({ isActive, isPending }) => 
+                                        className={({ isActive, isPending }) =>
                                             isActive ? 'active' : isPending ? 'pending' : ''
                                         }>
                                         {contact.first || contact.last ? (
