@@ -1,6 +1,6 @@
 'use strict'
 
-import { Form, redirect, useLoaderData } from 'react-router-dom'
+import { Form, redirect, useLoaderData, useNavigate } from 'react-router-dom'
 import { updateContact } from '../data/contacts'
 
 export const action = async ({ request, params }) => {
@@ -12,6 +12,11 @@ export const action = async ({ request, params }) => {
 
 export default function EditContact() {
     const { contact } = useLoaderData()
+    const navigate = useNavigate()
+
+    const cancelHandleClick = () => {
+        navigate(-1)
+    }
 
     return (
         <Form method="post" className="contact-form">
@@ -46,7 +51,7 @@ export default function EditContact() {
             </label>
             <p>
                 <button type="submit">Save</button>
-                <button type="button">Cancel</button>
+                <button type="button" onClick={cancelHandleClick}>Cancel</button>
             </p>
         </Form>
     )
