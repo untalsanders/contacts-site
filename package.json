@@ -1,0 +1,48 @@
+{
+    "name": "@sandersgutierrez/contacts-api-site",
+    "version": "0.0.0",
+    "description": "Contacts website",
+    "private": "true",
+    "scripts": {
+        "build": "webpack",
+        "dev": "NODE_ENV=development webpack serve",
+        "format": "prettier --write .",
+        "lint": "eslint"
+    },
+    "keywords": [
+        "contacts",
+        "static website"
+    ],
+    "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://sandershitierrez.github.io/)",
+    "license": "MIT",
+    "dependencies": {
+        "localforage": "1.10.0",
+        "match-sorter": "6.3.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-router-dom": "6.11.2",
+        "sort-by": "1.2.0"
+    },
+    "devDependencies": {
+        "@babel/core": "7.22.1",
+        "@babel/preset-env": "7.22.4",
+        "@babel/preset-react": "7.22.3",
+        "babel-loader": "9.1.2",
+        "css-loader": "6.8.1",
+        "eslint": "8.41.0",
+        "eslint-config-prettier": "8.8.0",
+        "eslint-plugin-react": "7.32.2",
+        "html-webpack-plugin": "5.5.1",
+        "prettier": "2.8.8",
+        "sass": "1.62.1",
+        "sass-loader": "13.3.1",
+        "style-loader": "3.3.3",
+        "webpack": "5.84.1",
+        "webpack-cli": "5.1.1",
+        "webpack-dev-server": "4.15.0"
+    },
+    "engines": {
+        "node": ">=18",
+        "npm": ">=8"
+    }
+}
