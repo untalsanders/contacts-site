@@ -1,7 +1,7 @@
 'use strict'
 
 import { redirect } from 'react-router-dom'
-import { deleteContact } from '../data/contacts'
+import { deleteContact } from './api/contacts'
 
 export const action = async ({ params }) => {
     await deleteContact(params.id)
