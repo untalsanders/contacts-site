@@ -4,7 +4,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, argv) => ({
-    mode: env.mode || 'production',
+    mode: argv.mode || 'production',
     entry: './src/index.js',
     devtool: 'inline-source-map',
     devServer: {
@@ -13,7 +13,7 @@ module.exports = (env, argv) => ({
     },
     output: {
         path: path.join(process.cwd(), 'dist'),
-        publicPath: env.mode === 'production' ? '/contacts-api-site' : '/',
+        publicPath: argv.mode === 'production' ? '/contacts-api-site' : '/',
         clean: true,
     },
     resolve: {
