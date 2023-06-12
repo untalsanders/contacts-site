@@ -3,6 +3,13 @@
     "version": "0.0.0",
     "description": "Contacts website",
     "private": "true",
+    "keywords": [
+        "contacts",
+        "static website"
+    ],
+    "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://sandershitierrez.github.io/)",
+    "license": "MIT",
+    "homepage": "https://sandersgutierrez.github.io/contacts-api-site/",
     "scripts": {
         "build": "webpack",
         "deploy": "npm run build && gh-pages -d dist",
@@ -10,12 +17,6 @@
         "format": "prettier --write .",
         "lint": "eslint"
     },
-    "keywords": [
-        "contacts",
-        "static website"
-    ],
-    "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://sandershitierrez.github.io/)",
-    "license": "MIT",
     "dependencies": {
         "localforage": "1.10.0",
         "match-sorter": "6.3.1",
