@@ -2,7 +2,6 @@
 
 import localforage from 'localforage'
 import { matchSorter } from 'match-sorter'
-import sortBy from 'sort-by'
 
 let fakeCache = {}
 
@@ -30,7 +29,7 @@ export const getContacts = async query => {
     if (query) {
         contacts = matchSorter(contacts, query, { keys: ['first', 'last'] })
     }
-    return contacts.sort(sortBy('last', 'createdAt'))
+    return contacts.sort((a, b) => (a.first > b.first) ? 1 : (a.first < b.first) ? -1 : 0)
 }
 
 export const createContact = async () => {
