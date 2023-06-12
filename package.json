@@ -9,11 +9,11 @@
     ],
     "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://sandershitierrez.github.io/)",
     "license": "MIT",
-    "homepage": "https://sandersgutierrez.github.io/contacts-api-site/",
+    "homepage": "https://sandersgutierrez.github.io/contacts-api-site",
     "scripts": {
-        "build": "webpack",
-        "deploy": "npm run build && gh-pages -d dist",
-        "dev": "NODE_ENV=development webpack serve",
+        "build": "webpack --mode=production",
+        "deploy": "gh-pages -d dist",
+        "dev": "webpack serve --mode=development",
         "format": "prettier --write .",
         "lint": "eslint"
     },
