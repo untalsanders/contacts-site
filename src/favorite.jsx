@@ -4,7 +4,7 @@ import { useFetcher } from 'react-router-dom'
 
 export default function Favorite({ contact }) {
     const fetcher = useFetcher()
-    
+
     let favorite = contact.favorite
     if (fetcher.formData) {
         favorite = fetcher.formData.get('favorite') === 'true'

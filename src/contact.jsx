@@ -8,7 +8,7 @@ export const loader = async ({ params }) => ({ contact: await getContact(params.
 export const action = async ({ request, params }) => {
     let formData = await request.formData()
     return updateContact(params.id, {
-        favorite: formData.get('favorite') === 'true'
+        favorite: formData.get('favorite') === 'true',
     })
 }
 

@@ -1,7 +1,6 @@
 {
-    "name": "@sandersgutierrez/contacts-api-site",
+    "name": "contacts-api-site",
     "version": "0.0.0",
-    "description": "Contacts website",
     "private": "true",
     "keywords": [
         "contacts",

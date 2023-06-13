@@ -51,7 +51,9 @@ export default function EditContact() {
             </label>
             <p>
                 <button type="submit">Save</button>
-                <button type="button" onClick={cancelHandleClick}>Cancel</button>
+                <button type="button" onClick={cancelHandleClick}>
+                    Cancel
+                </button>
             </p>
         </Form>
     )

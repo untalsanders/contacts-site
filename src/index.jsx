@@ -10,7 +10,7 @@ import EditContact, { action as editAction } from './edit'
 import ErrorPage from './error-page'
 import Index from './home'
 
-const router = createBrowserRouter([
+const routes = [
     {
         path: '/',
         element: <App />,
@@ -45,7 +45,9 @@ const router = createBrowserRouter([
             },
         ],
     },
-])
+]
+
+const router = createBrowserRouter(routes)
 
 const root = createRoot(document.getElementById('root'))
 root.render(

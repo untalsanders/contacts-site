@@ -5,16 +5,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, argv) => ({
     mode: argv.mode || 'production',
-    entry: './src/index.js',
-    devtool: 'inline-source-map',
-    devServer: {
-        static: [path.resolve(__dirname, 'src', 'assets')],
-        compress: true,
-    },
+    entry: './src/index.jsx',
     output: {
         path: path.join(process.cwd(), 'dist'),
         publicPath: argv.mode === 'production' ? '/contacts-api-site' : '/',
         clean: true,
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        static: [path.resolve(__dirname, 'src', 'assets')],
+        compress: true,
     },
     resolve: {
         alias: {
@@ -24,28 +24,18 @@ module.exports = (env, argv) => ({
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.(?:js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            [
-                                '@babel/preset-react',
-                                {
-                                    runtime: 'automatic',
-                                },
-                            ],
-                        ],
-                    },
-                },
+                use: ['babel-loader'],
             },
             {
                 test: /\.s[ac]ss$/i,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx'],
     },
     plugins: [
         new HtmlWebpackPlugin({
