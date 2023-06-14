@@ -1,9 +1,9 @@
 'use strict'
 
-import './styles/global.scss'
+import { useEffect } from 'react'
 import { Form, NavLink, Outlet, redirect, useLoaderData, useNavigation, useSubmit } from 'react-router-dom'
 import { createContact, getContacts } from './api/contacts'
-import { useEffect } from 'react'
+import './styles/global.scss'
 
 export const loader = async ({ request }) => {
     const url = new URL(request.url)

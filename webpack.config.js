@@ -1,5 +1,6 @@
 'use strict'
 
+const { DefinePlugin } = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -8,7 +9,7 @@ module.exports = (env, argv) => ({
     entry: './src/index.jsx',
     output: {
         path: path.join(process.cwd(), 'dist'),
-        publicPath: argv.mode === 'production' ? '/contacts-api-site' : '/',
+        publicPath: env.production ? '/contacts-api-site' : '/',
         clean: true,
     },
     devtool: 'inline-source-map',
@@ -47,5 +48,8 @@ module.exports = (env, argv) => ({
             title: 'Contacts',
             template: './src/index.html',
         }),
+        new DefinePlugin({
+            BASE_URL: env.production ? JSON.stringify('/contacts-api-site') : JSON.stringify('/')
+        })
     ],
 })
