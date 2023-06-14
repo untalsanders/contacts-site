@@ -12,7 +12,7 @@ export const loader = async ({ request }) => {
 }
 export const action = async () => {
     const contact = await createContact()
-    return redirect(`/contacts/${contact.id}/edit`)
+    return redirect(`${BASE_URL}/contacts/${contact.id}/edit`)
 }
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
                         <div id="search-spinner" aria-hidden hidden={!searching} />
                         <div className="sr-only" aria-live="polite" />
                     </Form>
-                    <Form method="post">
+                    <Form action={BASE_URL} method="post">
                         <button type="submit">New</button>
                     </Form>
                 </div>

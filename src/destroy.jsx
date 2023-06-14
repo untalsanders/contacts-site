@@ -5,5 +5,5 @@ import { deleteContact } from './api/contacts'
 
 export const action = async ({ params }) => {
     await deleteContact(params.id)
-    return redirect('/')
+    return redirect(BASE_URL)
 }
