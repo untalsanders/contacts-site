@@ -1,23 +1,23 @@
-"use strict";
+'use strict'
 
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    mode: process.env.NODE_ENV || "production",
-    entry: "./src/index.js",
-    devtool: "inline-source-map",
+    mode: process.env.NODE_ENV || 'production',
+    entry: './src/index.js',
+    devtool: 'inline-source-map',
     devServer: {
-        static: [path.resolve(__dirname, "src", "assets")],
+        static: [path.resolve(__dirname, 'src', 'assets')],
         compress: true,
     },
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
     resolve: {
         alias: {
-            "@": path.resolve(__dirname, "src"),
+            '@': path.resolve(__dirname, 'src'),
         },
     },
     module: {
@@ -26,14 +26,14 @@ module.exports = {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
-                    loader: "babel-loader",
+                    loader: 'babel-loader',
                     options: {
                         presets: [
-                            "@babel/preset-env",
+                            '@babel/preset-env',
                             [
-                                "@babel/preset-react",
+                                '@babel/preset-react',
                                 {
-                                    runtime: "automatic",
+                                    runtime: 'automatic',
                                 },
                             ],
                         ],
@@ -42,20 +42,19 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
-            }
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            inject: "body",
+            inject: 'body',
             meta: {
-                viewport:
-                    "width=device-width, initial-scale=1, shrink-to-fit=no",
+                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
             },
-            scriptLoading: "defer",
-            title: "Contacts",
-            template: "./src/index.html",
+            scriptLoading: 'defer',
+            title: 'Contacts',
+            template: './src/index.html',
         }),
     ],
-};
+}
