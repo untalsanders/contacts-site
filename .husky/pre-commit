@@ -1,1 +1,1 @@
-echo "Hello from Husky"
+pnpm exec lint-staged
