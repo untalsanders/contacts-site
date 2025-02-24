@@ -15,7 +15,9 @@
         "deploy": "gh-pages -d dist",
         "dev": "webpack serve --mode development",
         "format": "prettier --write .",
-        "lint": "eslint"
+        "lint": "eslint",
+        "prepare": "husky",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
         "localforage": "1.10.0",
