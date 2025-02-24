@@ -3,12 +3,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import App, { action as rootAction, loader as rootLoader } from './App'
-import Contact, { loader as contactLoader, action as contactAction } from './contact'
-import { action as deleteAction } from './destroy'
-import EditContact, { action as editAction } from './edit'
-import ErrorPage from './error-page'
-import Index from './home'
+import App, { action as rootAction, loader as rootLoader } from './App.js'
+import Contact, { loader as contactLoader, action as contactAction } from './contact.js'
+import { action as deleteAction } from './destroy.js'
+import EditContact, { action as editAction } from './edit.js'
+import ErrorPage from './error-page.js'
+import Index from './home.js'
 
 const router = createBrowserRouter([
     {

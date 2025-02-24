@@ -1,23 +1,27 @@
 'use strict'
 
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import { fileURLToPath } from "node:url"
+import {resolve, dirname} from 'node:path'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+export default {
     mode: process.env.NODE_ENV || 'production',
     entry: './src/index.js',
     devtool: 'inline-source-map',
     devServer: {
-        static: [path.resolve(__dirname, 'src', 'assets')],
+        static: [resolve(__dirname, 'src', 'assets')],
         compress: true,
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: resolve(__dirname, 'dist'),
         clean: true,
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, 'src'),
+            '@': resolve(__dirname, 'src'),
         },
     },
     module: {
