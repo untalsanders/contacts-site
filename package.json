@@ -16,7 +16,8 @@
         "dev": "webpack serve --mode development",
         "format": "prettier --write .",
         "prepare": "husky",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "commitlint": "commitlint --edit"
     },
     "dependencies": {
         "localforage": "1.10.0",
@@ -31,6 +32,8 @@
         "@babel/preset-env": "7.22.4",
         "@babel/preset-react": "7.22.3",
         "@babel/preset-typescript": "7.24.7",
+        "@commitlint/cli": "19.7.1",
+        "@commitlint/config-conventional": "19.7.1",
         "@types/react": "18.3.3",
         "@types/react-dom": "18.3.0",
         "babel-loader": "9.1.2",
