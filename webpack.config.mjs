@@ -1,11 +1,9 @@
 'use strict'
 
-import { fileURLToPath } from "node:url"
-import {resolve, dirname} from 'node:path'
+import {resolve} from 'node:path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const __dirname = import.meta.dirname
 
 export default {
     mode: process.env.NODE_ENV || 'production',
@@ -58,7 +56,7 @@ export default {
             },
             scriptLoading: 'defer',
             title: 'Contacts',
-            template: './src/index.html',
+            template: './public/index.html',
         }),
     ],
 }
