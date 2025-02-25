@@ -1,6 +1,6 @@
 'use strict'
 
-import {resolve} from 'node:path'
+import { resolve } from 'node:path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const __dirname = import.meta.dirname
@@ -10,7 +10,7 @@ export default {
     entry: './src/index.js',
     devtool: 'inline-source-map',
     devServer: {
-        static: [resolve(__dirname, 'src', 'assets')],
+        static: [resolve(__dirname, 'src', 'assets'), resolve(__dirname, 'public')],
         compress: true,
     },
     output: {
