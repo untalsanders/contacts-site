@@ -1,7 +1,8 @@
 'use strict'
 
-import { resolve } from 'node:path'
+import CopyPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { resolve } from 'node:path'
 
 const __dirname = import.meta.dirname
 
@@ -57,6 +58,9 @@ export default {
             scriptLoading: 'defer',
             title: 'Contacts',
             template: './public/index.html',
+        }),
+        new CopyPlugin({
+            patterns: [{ from: 'public/**/*.{png,svg,jpg,jpeg,webm}' }],
         }),
     ],
 }
