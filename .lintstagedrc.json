@@ -1,3 +1,4 @@
 {
-    "*.{js,json,scss}": "pnpm run format"
+    "*.{js,json,scss}": "pnpm run format",
+    "*.js": "pnpm run lint"
 }
