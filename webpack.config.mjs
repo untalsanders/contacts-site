@@ -8,7 +8,7 @@ const __dirname = import.meta.dirname
 
 export default {
     mode: process.env.NODE_ENV || 'production',
-    entry: './src/index.js',
+    entry: './src/index.tsx',
     devtool: 'inline-source-map',
     devServer: {
         static: [resolve(__dirname, 'src', 'assets'), resolve(__dirname, 'public')],
@@ -22,9 +22,15 @@ export default {
         alias: {
             '@': resolve(__dirname, 'src'),
         },
+        extensions: ['.tsx', '.ts', '.js'],
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
