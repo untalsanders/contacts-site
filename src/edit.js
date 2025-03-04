@@ -1,7 +1,7 @@
 'use strict'
 
 import { Form, redirect, useLoaderData, useNavigate } from 'react-router-dom'
-import { updateContact } from '../data/contacts.js'
+import { updateContact } from '../data/contacts'
 
 export const action = async ({ request, params }) => {
     const formData = await request.formData()

@@ -1,14 +1,14 @@
 'use strict'
 
 import React, { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import App, { action as rootAction, loader as rootLoader } from './App.js'
-import Contact, { loader as contactLoader, action as contactAction } from './contact.js'
-import { action as deleteAction } from './destroy.js'
-import EditContact, { action as editAction } from './edit.js'
-import ErrorPage from './error-page.js'
-import Index from './home.js'
+import { Container, createRoot } from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import App, { action as rootAction, loader as rootLoader } from './App'
+import Contact, { action as contactAction, loader as contactLoader } from './contact'
+import { action as deleteAction } from './destroy'
+import EditContact, { action as editAction } from './edit'
+import ErrorPage from './error-page'
+import Index from './home'
 
 const router = createBrowserRouter([
     {
@@ -47,7 +47,8 @@ const router = createBrowserRouter([
     },
 ])
 
-const root = createRoot(document.getElementById('root'))
+const el = document.getElementById('root') as Container
+const root = createRoot(el)
 root.render(
     <StrictMode>
         <RouterProvider router={router} />

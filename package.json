@@ -2,12 +2,11 @@
     "name": "contacts-site",
     "version": "0.0.0",
     "private": "true",
-    "type": "module",
     "keywords": [
         "contacts",
         "static website"
     ],
-    "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://untalsanders.com/)",
+    "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://untalsanders.com)",
     "license": "AGPL-3.0",
     "homepage": "https://untalsanders.github.io/contacts-site",
     "scripts": {
@@ -38,8 +37,11 @@
         "@commitlint/cli": "19.7.1",
         "@commitlint/config-conventional": "19.7.1",
         "@eslint/js": "9.21.0",
+        "@tsconfig/recommended": "1.0.8",
+        "@types/node": "22.13.9",
         "@types/react": "18.3.3",
         "@types/react-dom": "18.3.0",
+        "@types/webpack": "5.28.5",
         "babel-loader": "9.1.2",
         "copy-webpack-plugin": "12.0.2",
         "css-loader": "6.8.1",
@@ -56,6 +58,7 @@
         "sass-loader": "13.3.1",
         "style-loader": "3.3.3",
         "ts-loader": "9.5.2",
+        "ts-node": "10.9.2",
         "typescript": "5.8.2",
         "typescript-eslint": "7.17.0",
         "webpack": "5.97.1",

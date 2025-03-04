@@ -1,19 +1,14 @@
 {
+    "extends": "@tsconfig/recommended/tsconfig.json",
     "compilerOptions": {
         "outDir": "./dist/",
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "module": "es6",
-        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "jsx": "react",
+        "sourceMap": true,
         "allowJs": true,
-        "moduleResolution": "node",
-        "baseUrl": "src/",
-        "paths": {
-            "@/*": ["*"]
-        },
         "allowSyntheticDefaultImports": true
     },
-    "include": ["**/*.ts", "**/*.tsx"],
+    "include": ["./src/**/*.ts", "./src/**/*.tsx"],
     "exclude": ["node_modules"]
 }
