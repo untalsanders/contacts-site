@@ -1,8 +1,8 @@
 'use strict'
 
 import { Form, useLoaderData } from 'react-router-dom'
-import Favorite from './favorite.js'
-import { getContact, updateContact } from '../data/contacts.js'
+import Favorite from './favorite'
+import { getContact, updateContact } from '../data/contacts'
 
 export const loader = async ({ params }) => ({ contact: await getContact(params.id) })
 
