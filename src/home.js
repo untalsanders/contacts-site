@@ -6,7 +6,7 @@ export default function Index() {
             {'This is a demo for the Contact API project '}
             <br />
             {'Check out the documentation '}
-            <a href="https://sandersgutierrez.github.io/contacts-api-site">here!</a>.
+            <a href="https://untalsanders.github.io/contacts-site">here!</a>.
         </p>
     )
 }

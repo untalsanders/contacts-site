@@ -3,9 +3,9 @@
 import '@/styles/global.scss'
 import { Form, NavLink, Outlet, redirect, useLoaderData, useNavigation, useSubmit } from 'react-router-dom'
 import { createContact, getContacts } from '../data/contacts'
-import { useEffect, useState } from 'react'
+import React, { Key, useEffect } from 'react'
 
-export const loader = async ({ request }) => {
+export const loader = async ({ request }: { request: Request }) => {
     const url = new URL(request.url)
     const q = url.searchParams.get('q')
     return { contacts: await getContacts(q), q }
@@ -16,6 +16,7 @@ export const action = async () => {
 }
 
 export default function App() {
+    // @ts-ignore
     const { contacts, q } = useLoaderData()
     const navigation = useNavigation()
     const submit = useSubmit()
@@ -23,6 +24,7 @@ export default function App() {
     const searching = navigation.location && new URLSearchParams(navigation.location.search).has('q')
 
     useEffect(() => {
+        // @ts-ignore
         document.querySelector('#q').value = q
     }, [q])
 
@@ -55,7 +57,7 @@ export default function App() {
                 <nav>
                     {contacts.length ? (
                         <ul>
-                            {contacts.map(contact => (
+                            {contacts.map((contact: { id: Key; first: any; last: any; favorite: any }) => (
                                 <li key={contact.id}>
                                     <NavLink
                                         to={`contacts/${contact.id}`}

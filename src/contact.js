@@ -5,10 +5,11 @@ import Favorite from './favorite'
 import { getContact, updateContact } from '../data/contacts'
 
 export const loader = async ({ params }) => ({ contact: await getContact(params.id) })
+
 export const action = async ({ request, params }) => {
     let formData = await request.formData()
     return updateContact(params.id, {
-        favorite: formData.get('favorite') === 'true'
+        favorite: formData.get('favorite') === 'true',
     })
 }
 
@@ -18,7 +19,7 @@ export default function Contact() {
     return (
         <>
             <div className="contact">
-                <img key={contact.avatar} src={contact.avatar || null} />
+                <img key={contact.avatar} src={contact.avatar || null} alt="image" />
                 <div>
                     <h1>
                         {contact.first || contact.last ? (
@@ -33,7 +34,7 @@ export default function Contact() {
 
                     {contact.twitter && (
                         <p>
-                            <a href={`https://twitter.com/${contact.twitter}`} target="_blank">
+                            <a href={`https://twitter.com/${contact.twitter}`} target="_blank" rel="noreferrer">
                                 {contact.twitter}
                             </a>
                         </p>
