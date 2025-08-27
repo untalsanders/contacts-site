@@ -8,7 +8,7 @@
     ],
     "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://untalsanders.com)",
     "license": "AGPL-3.0",
-    "homepage": "https://untalsanders.github.io/contacts-site",
+    "homepage": "https://contacts.untalsanders.com",
     "scripts": {
         "clean": "rimraf dist",
         "build": "webpack --mode production",
@@ -24,9 +24,9 @@
     "dependencies": {
         "localforage": "1.10.0",
         "match-sorter": "6.3.1",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "react-router-dom": "6.11.2",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "react-router-dom": "7.4.1",
         "sort-by": "1.2.0"
     },
     "devDependencies": {
@@ -38,9 +38,9 @@
         "@commitlint/config-conventional": "19.7.1",
         "@eslint/js": "9.21.0",
         "@tsconfig/recommended": "1.0.8",
-        "@types/node": "22.13.9",
-        "@types/react": "18.3.3",
-        "@types/react-dom": "18.3.0",
+        "@types/node": "22.13.14",
+        "@types/react": "19.0.12",
+        "@types/react-dom": "19.0.4",
         "@types/webpack": "5.28.5",
         "babel-loader": "9.1.2",
         "copy-webpack-plugin": "12.0.2",
@@ -70,5 +70,5 @@
         "node": ">=20",
         "npm": ">=10"
     },
-    "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
+    "packageManager": "pnpm@10.13.1"
 }
